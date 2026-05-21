@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# ./run [local|docker|test]
+# Default: docker
+
+set -euo pipefail
+
+MODE="${1:-docker}"
+
+case "$MODE" in
+  local)
+    echo "▶ Running locally (requires Java 17+ and Maven)..."
+    if command -v /usr/libexec/java_home >/dev/null 2>&1; then
+      export JAVA_HOME="$(/usr/libexec/java_home -v 17 2>/dev/null || true)"
+    fi
+    mvn spring-boot:run -Dmaven.test.skip=true
+    ;;
+
+  docker)
+    echo "▶ Starting with Docker Compose..."
+    docker compose up --build
+    ;;
+
+  test)
+    echo "▶ Running all tests..."
+    mvn test
+    ;;
+
+  *)
+    echo "Usage: ./run [local|docker|test]"
+    exit 1
+    ;;
+esac
