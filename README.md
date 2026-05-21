@@ -34,18 +34,19 @@ src/main/java/com/pismo/transactions/
 ## Quick Start
 
 ```bash
-# Clone
-git clone <your-repo-url>
-cd pismo-transactions-java
+# Clone the repository
+git clone https://github.com/<your-username>/pismo-transactions.git
+cd pismo-transactions
 
-# Option 1: Docker (zero setup)
+# Option 1: Docker (zero setup — multi-arch ready for Apple Silicon M1/M2/M3 & Intel/AMD)
 ./run docker
 
 # Option 2: Local (Java 17 + Maven required)
 ./run local
 
-# Option 3: Tests
+# Option 3: Tests (requires Java 17)
 ./run test
+
 ```
 
 ## Manual Commands
