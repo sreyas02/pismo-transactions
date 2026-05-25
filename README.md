@@ -35,7 +35,7 @@ src/main/java/com/pismo/transactions/
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/pismo-transactions.git
+git clone https://github.com/sreyas02/pismo-transactions.git
 cd pismo-transactions
 
 # Option 1: Docker (zero setup — multi-arch ready for Apple Silicon M1/M2/M3 & Intel/AMD)
