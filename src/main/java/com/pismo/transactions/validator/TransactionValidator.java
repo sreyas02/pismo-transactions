@@ -28,6 +28,11 @@ public class TransactionValidator {
                 "document_number must be between 5 and 20 characters"
             );
         }
+        if (!doc.matches("\\d+")) {
+            throw new ValidationException(
+                    "document_number must contain only digits"
+            );
+        }
     }
 
     // ── Transaction validation ───────────────────────────────────────────────

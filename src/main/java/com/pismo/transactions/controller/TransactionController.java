@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * HTTP handler for the /transactions resource.
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/transactions")
 @RequiredArgsConstructor
+@Tag(name = "Transactions", description = "Transaction management endpoints")
 public class TransactionController {
 
     private final TransactionService transactionService;  // DIP
@@ -27,6 +30,10 @@ public class TransactionController {
      *
      * @return 201 Created with the full transaction payload
      */
+    @Operation(
+            summary = "Create a transaction",
+            description = "Debit operations (types 1-3) stored as negative. Credit voucher (type 4) stored as positive."
+    )
     @PostMapping
     public ResponseEntity<TransactionResponse> createTransaction(
             @RequestBody CreateTransactionRequest request) {

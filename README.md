@@ -121,6 +121,13 @@ docker compose up --build
 
 ---
 
+## API Documentation
+
+Swagger UI is available when the application is running:
+
+- **Swagger UI:** http://localhost:8080/swagger-ui.html
+- **OpenAPI JSON:** http://localhost:8080/api-docs
+
 ## Example Session
 
 ```bash

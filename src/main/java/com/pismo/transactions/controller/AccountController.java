@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * HTTP handler for the /accounts resource.
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/accounts")
 @RequiredArgsConstructor
+@Tag(name = "Accounts", description = "Account management endpoints")
 public class AccountController {
 
     private final AccountService accountService;  // DIP
@@ -27,6 +30,7 @@ public class AccountController {
      *
      * @return 201 Created with the account payload
      */
+    @Operation(summary = "Create a new account")
     @PostMapping
     public ResponseEntity<AccountResponse> createAccount(
             @RequestBody CreateAccountRequest request) {
@@ -40,6 +44,7 @@ public class AccountController {
      *
      * @return 200 OK with the account payload
      */
+    @Operation(summary = "Get account by ID")
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountResponse> getAccount(
             @PathVariable Long accountId) {
